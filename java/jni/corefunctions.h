@@ -32,7 +32,7 @@ jint ensureInitialized(JNIEnv** env, JavaVM* vm);
  * Returns a JNIEnv* suitable for the current thread. If the current thread is
  * not attached to the Java VM, this method aborts execution.
  */
-JNIEnv* getCurrentEnv();
+JNIEXPORT JNIEnv* getCurrentEnv();
 
 /**
  * Logs an error message and aborts the current process.
