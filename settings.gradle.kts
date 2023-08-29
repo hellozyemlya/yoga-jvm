@@ -24,3 +24,5 @@ buildscript {
 }
 
 include(":java-jvm")
+
+project(":java-jvm").name = "yoga-jvm"
