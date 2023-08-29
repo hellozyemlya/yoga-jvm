@@ -7,6 +7,10 @@ cmake_minimum_required(VERSION 3.13...3.26)
 project(yogajni)
 set(CMAKE_VERBOSE_MAKEFILE on)
 
+find_package(Java REQUIRED)
+find_package(JNI REQUIRED)
+include(UseJava)
+
 set(YOGA_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/..)
 include(${YOGA_ROOT}/cmake/project-defaults.cmake)
 
@@ -19,4 +23,6 @@ file(GLOB VERSION_SCRIPT CONFIGURE_DEPENDS
 
 add_library(yoga SHARED ${SOURCES})
 target_link_libraries(yoga yogacore)
-target_link_options(yoga PRIVATE -Wl,--version-script=${VERSION_SCRIPT})
+target_link_libraries(yoga ${JNI_LIBRARIES})
+target_include_directories(yoga PRIVATE ${JNI_INCLUDE_DIRS})
+target_link_options(yoga PRIVATE -Wl)
