@@ -23,6 +23,5 @@ file(GLOB VERSION_SCRIPT CONFIGURE_DEPENDS
 
 add_library(yoga SHARED ${SOURCES})
 target_link_libraries(yoga yogacore)
-target_link_libraries(yoga ${JNI_LIBRARIES})
 target_include_directories(yoga PRIVATE ${JNI_INCLUDE_DIRS})
 target_link_options(yoga PRIVATE -Wl)
